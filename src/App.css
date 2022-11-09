@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Bold.woff");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("fonts/Inter-Regular.woff");
+  font-weight: normal;
+}
+
+* {
+  font-family: "Inter";
+}
+
 .App {
   text-align: center;
 }
