@@ -12,7 +12,8 @@ const WhatWeDoCard = ({ image, title, content }) => {
         }}
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        viewport={{ once: true, margin: "-300px" }}
+        viewport={{ once: true }}
+        transition={{ duration: 1 }}
       >
         <figure className="image is-16by9" style={{ width: 60 }}>
           <img src={`./assets/icons/${image}`} alt={title} />
