@@ -9,10 +9,7 @@ const Hero = () => {
 
   return (
     <section className="hero is-primary is-large">
-      <div
-        className="hero-head"
-        style={{ backgroundColor: "rgba(112, 37, 155, 1)" }}
-      >
+      <div className="hero-head">
         <Navbar />
       </div>
       <div
@@ -33,7 +30,7 @@ const Hero = () => {
         >
           <p className="title pb-3 is-size-1">{content.title}</p>
           <p className="subtitle">{content.subtitle}</p>
-          <motion.span whileTap={{ scale: 0.9 }}>
+          <span whileTap={{ scale: 0.9 }}>
             <Link
               className="button is-primary is-inverted is-rounded"
               style={{
@@ -44,17 +41,18 @@ const Hero = () => {
               onMouseEnter={() => setHover(true)}
               onMouseLeave={() => setHover(false)}
             >
-              <span
+              <motion.span
                 className="has-text-weight-bold"
                 style={{
                   color: hover ? "rgba(112, 37, 155, 1)" : "#fff",
                   fontSize: "14px",
                 }}
+                whileTap={{ scale: 0.9 }}
               >
                 {content.button.text}
-              </span>
+              </motion.span>
             </Link>
-          </motion.span>
+          </span>
         </div>
       </div>
     </section>

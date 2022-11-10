@@ -1,43 +1,66 @@
 import React, { useState } from "react";
 import content from "./content";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [hover, setHover] = useState(false);
   const [showMobile, setShowMobile] = useState(false);
 
   return (
-    <nav className="navbar py-2">
-      <div className="container">
-        <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
-            <img
-              src={`./assets/images/${content.logo}`}
-              alt="Logo"
-              style={{ width: "100%" }}
-            />
-          </Link>
-          <span
-            className="navbar-burger"
-            data-target="navbarMenuHeroA"
-            onClick={() => setShowMobile(!showMobile)}
-          >
-            <span style={{ backgroundColor: "#fff" }}></span>
-            <span style={{ backgroundColor: "#fff" }}></span>
-            <span style={{ backgroundColor: "#fff" }}></span>
-          </span>
+    <nav
+      className="navbar px-5"
+      role="navigation"
+      aria-label="main navigation"
+      style={{ backgroundColor: "rgba(112, 37, 155, 1)" }}
+    >
+      <div className="navbar-brand">
+        <a className="navbar-item" href="/">
+          <img
+            src={`./assets/images/${content.logo}`}
+            width="112"
+            height="28"
+            alt="Logo"
+          />
+        </a>
+
+        <span
+          role="button"
+          className="navbar-burger"
+          aria-label="menu"
+          aria-expanded="false"
+          data-target="navbarBasicExample"
+          onClick={() => setShowMobile(!showMobile)}
+        >
+          <span aria-hidden="true" className="has-text-white"></span>
+          <span aria-hidden="true" className="has-text-white"></span>
+          <span aria-hidden="true" className="has-text-white"></span>
+        </span>
+      </div>
+
+      <div id="navbarBasicExample" className="navbar-menu">
+        <div
+          className="navbar-start p-0 m-0"
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          {content.links.map((link, index) => (
+            <Link
+              key={index}
+              className="navbar-item has-text-weight-bold"
+              to={link.link}
+            >
+              {link.text}
+            </Link>
+          ))}
         </div>
-        <div id="navbarMenuHeroA" className="navbar-menu">
-          <div className="navbar-end">
-            {content.links.map((link, index) => (
-              <Link
-                key={index}
-                className="navbar-item has-text-weight-bold"
-                to={link.link}
-              >
-                {link.text}
-              </Link>
-            ))}
+
+        <div className="navbar-end">
+          <div className="navbar-item p-1">
             <span className="navbar-item">
               <Link
                 className="button is-primary is-inverted is-rounded"
@@ -66,6 +89,7 @@ const Navbar = () => {
         style={{
           backgroundColor: "rgba(112, 37, 155, 1)",
           height: showMobile ? 250 : 0,
+          display: showMobile ? "block" : "none",
           transition: "all 0.3s ease-in-out",
         }}
       >
@@ -100,12 +124,13 @@ const Navbar = () => {
                 borderColor: "#fff",
               }}
             >
-              <span
+              <motion.span
                 className="has-text-weight-bold"
                 style={{ color: hover ? "#fff" : "rgba(112, 37, 155, 1)" }}
+                whileTap={{ scale: 0.9 }}
               >
                 {content.button.text}
-              </span>
+              </motion.span>
             </Link>
           </span>
         </div>
