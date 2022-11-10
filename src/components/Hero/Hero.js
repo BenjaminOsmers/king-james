@@ -8,7 +8,10 @@ const Hero = () => {
   const [hover, setHover] = useState(false);
 
   return (
-    <section className="hero is-primary is-large">
+    <section
+      className="hero is-primary is-large"
+      style={{ background: "rgba(112, 37, 155, 1)" }}
+    >
       <div className="hero-head">
         <Navbar />
       </div>

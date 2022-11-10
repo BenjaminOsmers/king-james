@@ -23,7 +23,6 @@ const Navbar = () => {
             alt="Logo"
           />
         </a>
-
         <span
           role="button"
           className="navbar-burger"
@@ -37,7 +36,6 @@ const Navbar = () => {
           <span aria-hidden="true" className="has-text-white"></span>
         </span>
       </div>
-
       <div id="navbarBasicExample" className="navbar-menu">
         <div
           className="navbar-start p-0 m-0"
@@ -53,12 +51,14 @@ const Navbar = () => {
               key={index}
               className="navbar-item has-text-weight-bold"
               to={link.link}
+              style={{
+                backgroundColor: "transparent",
+              }}
             >
               {link.text}
             </Link>
           ))}
         </div>
-
         <div className="navbar-end">
           <div className="navbar-item p-1">
             <span className="navbar-item">
